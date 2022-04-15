@@ -1,5 +1,5 @@
 import React from 'react';
-import { FeedbackButtons, FeedbackButton } from './Feedback.styled';
+import { FeedbackButtons, FeedbackButton } from '../App/App.styled';
 
 export const Controls = ({ onGood, onNeutral, onBad }) => (
   <FeedbackButtons>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FeedbackLevel, FeedbackStatistics } from './Feedback.styled';
+import { FeedbackLevel, FeedbackStatistics } from '../App/App.styled';
 
 export const FeedbackStatictics = ({
   good,
