@@ -14,7 +14,6 @@ export class App extends React.Component {
 
   handleFeedback = event => {
     const eventName = event.target.textContent;
-    console.log(eventName);
     this.setState(prevState => {
       return {
         [eventName]: prevState[eventName] + 1,
