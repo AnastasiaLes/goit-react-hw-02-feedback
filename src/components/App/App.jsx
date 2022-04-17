@@ -12,7 +12,7 @@ export class App extends React.Component {
     bad: 0,
   };
 
-  handleFeedback = event => {
+  onLeaveFeedback = event => {
     const eventName = event.target.textContent;
     this.setState(prevState => {
       return {
@@ -40,7 +40,7 @@ export class App extends React.Component {
     return (
       <FeedbackContainer>
         <h2>Please leave Feedback</h2>
-        <Controls options={options} handleFeedback={this.handleFeedback} />
+        <Controls options={options} onLeaveFeedback={this.onLeaveFeedback} />
         {this.countTotalFeedback() > 0 ? (
           <FeedbackStatictics
             good={this.state.good}

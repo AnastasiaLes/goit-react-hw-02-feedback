@@ -4,11 +4,11 @@ import { Capitalized } from './Button.styled';
 
 import { FeedbackButtons, FeedbackButton } from '../App/App.styled';
 
-export const Controls = ({ options, handleFeedback }) => (
+export const Controls = ({ options, onLeaveFeedback }) => (
   <FeedbackButtons>
     {options.map(option => (
       // console.log(option);
-      <FeedbackButton key={nanoid()} type="button" onClick={handleFeedback}>
+      <FeedbackButton key={nanoid()} type="button" onClick={onLeaveFeedback}>
         <Capitalized>{option}</Capitalized>
       </FeedbackButton>
     ))}
