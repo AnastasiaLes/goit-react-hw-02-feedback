@@ -3,34 +3,21 @@ import { FeedbackContainer, NotificationMessage } from './App.styled';
 import { Controls } from '../Buttons/Buttons';
 import { FeedbackStatictics } from '../Statistics/Statistics';
 
+const message = 'There is no feedback';
+
 export class App extends React.Component {
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
-    message: 'There is no feedback',
   };
 
-  handleGood = () => {
+  handleFeedback = event => {
+    const eventName = event.target.textContent;
+    console.log(eventName);
     this.setState(prevState => {
       return {
-        good: prevState.good + 1,
-      };
-    });
-  };
-
-  handleNeutral = () => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.neutral + 1,
-      };
-    });
-  };
-
-  handleBad = () => {
-    this.setState(prevState => {
-      return {
-        bad: prevState.bad + 1,
+        [eventName]: prevState[eventName] + 1,
       };
     });
   };
@@ -49,14 +36,12 @@ export class App extends React.Component {
   }
 
   render() {
+    const options = Object.keys(this.state);
+
     return (
       <FeedbackContainer>
         <h2>Please leave Feedback</h2>
-        <Controls
-          onGood={this.handleGood}
-          onNeutral={this.handleNeutral}
-          onBad={this.handleBad}
-        />
+        <Controls options={options} handleFeedback={this.handleFeedback} />
         {this.countTotalFeedback() > 0 ? (
           <FeedbackStatictics
             good={this.state.good}
@@ -66,7 +51,7 @@ export class App extends React.Component {
             percentage={this.countPositiveFeedbackPercentage()}
           />
         ) : (
-          <NotificationMessage>{this.state.message} </NotificationMessage>
+          <NotificationMessage>{message} </NotificationMessage>
         )}
       </FeedbackContainer>
     );

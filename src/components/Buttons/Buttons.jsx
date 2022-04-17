@@ -1,16 +1,16 @@
 import React from 'react';
+import { nanoid } from 'nanoid';
+import { Capitalized } from './Button.styled';
+
 import { FeedbackButtons, FeedbackButton } from '../App/App.styled';
 
-export const Controls = ({ onGood, onNeutral, onBad }) => (
+export const Controls = ({ options, handleFeedback }) => (
   <FeedbackButtons>
-    <FeedbackButton type="button" onClick={onGood}>
-      Good
-    </FeedbackButton>
-    <FeedbackButton type="button" onClick={onNeutral}>
-      Neutral
-    </FeedbackButton>
-    <FeedbackButton type="button" onClick={onBad}>
-      Bad
-    </FeedbackButton>
+    {options.map(option => (
+      // console.log(option);
+      <FeedbackButton key={nanoid()} type="button" onClick={handleFeedback}>
+        <Capitalized>{option}</Capitalized>
+      </FeedbackButton>
+    ))}
   </FeedbackButtons>
 );
