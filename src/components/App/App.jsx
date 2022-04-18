@@ -12,11 +12,10 @@ export class App extends React.Component {
     bad: 0,
   };
 
-  onLeaveFeedback = event => {
-    const eventName = event.target.textContent;
+  onLeaveFeedback = option => {
     this.setState(prevState => {
       return {
-        [eventName]: prevState[eventName] + 1,
+        [option]: prevState[option] + 1,
       };
     });
   };
@@ -50,7 +49,7 @@ export class App extends React.Component {
             percentage={this.countPositiveFeedbackPercentage()}
           />
         ) : (
-          <NotificationMessage>{message} </NotificationMessage>
+          <NotificationMessage>{message}</NotificationMessage>
         )}
       </FeedbackContainer>
     );

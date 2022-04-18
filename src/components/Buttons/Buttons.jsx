@@ -8,7 +8,11 @@ export const Controls = ({ options, onLeaveFeedback }) => (
   <FeedbackButtons>
     {options.map(option => (
       // console.log(option);
-      <FeedbackButton key={nanoid()} type="button" onClick={onLeaveFeedback}>
+      <FeedbackButton
+        key={nanoid()}
+        type="button"
+        onClick={() => onLeaveFeedback(option)}
+      >
         <Capitalized>{option}</Capitalized>
       </FeedbackButton>
     ))}
